@@ -1,58 +1,26 @@
-# Fyle Backend Challenge
+# Backend Intern Assignment Containerisation
 
-## Who is this for?
+## Prerequisites
 
-This challenge is meant for candidates who wish to intern at Fyle and work with our engineering team. You should be able to commit to at least 6 months of dedicated time for internship.
+Make sure you have the following installed on your machine:
 
-## Why work at Fyle?
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-Fyle is a fast-growing Expense Management SaaS product. We are ~40 strong engineering team at the moment. 
+## To Start the server
 
-We are an extremely transparent organization. Check out our [careers page](https://careers.fylehq.com) that will give you a glimpse of what it is like to work at Fyle. Also, check out our Glassdoor reviews [here](https://www.glassdoor.co.in/Reviews/Fyle-Reviews-E1723235.htm). You can read stories from our teammates [here](https://stories.fylehq.com).
-
-
-## Challenge outline
-
-**You are allowed to use any online/AI tool such as ChatGPT, Gemini, etc. to complete the challenge. However, we expect you to fully understand the code and logic involved.**
-
-This challenge involves writing a backend service for a classroom. The challenge is described in detail [here](./Application.md)
+Open a terminal in the directory of the project.
+Run : docker-compose up --build 
+<br>
+//Server will be running on port 7755 which is exposed through the Dockerfile
 
 
-## What happens next?
+## Some extra scripts have been added to reset the database and runTests
 
-You will hear back within 48 hours from us via email. 
+runTests.sh : resets the database and runs all the testcases 
+<br>
+resetDB.sh : resets the database
 
 
-## Installation
-
-1. Fork this repository to your github account
-2. Clone the forked repository and proceed with steps mentioned below
-
-### Install requirements
-
-```
-virtualenv env --python=python3.8
-source env/bin/activate
-pip install -r requirements.txt
-```
-### Reset DB
-
-```
-export FLASK_APP=core/server.py
-rm core/store.sqlite3
-flask db upgrade -d core/migrations/
-```
-### Start Server
-
-```
-bash run.sh
-```
-### Run Tests
-
-```
-pytest -vvv -s tests/
-
-# for test coverage report
-# pytest --cov
-# open htmlcov/index.html
-```
+## Test case execution
+![Coverage](./coverage.png)
